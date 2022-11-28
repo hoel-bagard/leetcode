@@ -1,4 +1,5 @@
-from .reverse_nodes import reverse_k_group, ListNode
+from .reverse_nodes import ListNode, reverse_k_group
+
 
 def create_linked_list(values: list[int]) -> ListNode:
     head = node = ListNode()
@@ -6,10 +7,10 @@ def create_linked_list(values: list[int]) -> ListNode:
         node.val = val
         if i < len(values)-1:
             new_node = ListNode()
-            node.next = new_node
+            node.next_node = new_node
             node = new_node
         else:
-            node.next = None
+            node.next_node = None
     return head
 
 
@@ -17,9 +18,9 @@ def linked_list_to_list(head: ListNode) -> list[int]:
     values: list[int] = []
     while True:
         values.append(head.val)
-        if head.next is None:
+        if head.next_node is None:
             return values
-        head = head.next
+        head = head.next_node
 
 
 def test_base():

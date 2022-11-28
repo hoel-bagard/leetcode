@@ -1,22 +1,23 @@
 """25. Reverse Nodes in k-Group.
 
 Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
-k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
+k is a positive integer and is less than or equal to the length of the linked list.If the number of nodes is not
+a multiple of k then left-out nodes, in the end, should remain as it is.
 You may not alter the values in the list's nodes, only nodes themselves may be changed.
 """
 from typing import Optional
+
 from typing_extensions import Self
 
 
 class ListNode:
     """Definition for singly-linked list."""
-    def __init__(self, val: int = 0, next: Optional[Self] = None):
+    def __init__(self, val: int = 0, next_node: Optional[Self] = None):
         self.val = val
-        self.next = next
+        self.next_node = next_node
 
     def __repr__(self) -> str:
-        return f"{type(self).__name__}({self.val}, {self.next})"
-
+        return f"{type(self).__name__}({self.val}, {self.next_node})"
 
 
 def reverse_k_group(head: ListNode, k: int) -> ListNode:
@@ -24,19 +25,19 @@ def reverse_k_group(head: ListNode, k: int) -> ListNode:
     # Jump is used to connect the last node of the previous k-group to the first node of the following k-group.
     jump = new_head
 
-    new_head.next = group_start = group_end = head
+    new_head.next_node = group_start = group_end = head
 
     while True:
         count = 0
         while group_end and count < k:   # use r to locate the range
-            group_end = group_end.next
+            group_end = group_end.next_node
             count += 1
         if count == k:  # If there are enough element to reverse, reverse them
             previous, current = group_end, group_start
             for _ in range(k):
                 # Standard reversing
-                current.next, current, previous = previous, current.next, current  # pyright: ignore
+                current.next_node, current, previous = previous, current.next_node, current  # pyright: ignore
             # Connect the two k-groups
-            jump.next, jump, group_start = previous, group_start, group_end
+            jump.next_node, jump, group_start = previous, group_start, group_end
         else:
-            return new_head.next
+            return new_head.next_node
