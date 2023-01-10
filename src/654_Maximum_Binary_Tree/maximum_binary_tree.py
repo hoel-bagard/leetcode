@@ -27,11 +27,11 @@ class Solution:
             return None
 
         # Get the index of the max value.
-        index = nums.index(max(nums))
-        # Create a node with the max has its value.
-        node = TreeNode(nums[index])
+        index_max = nums.index(max(nums))
+        # Create a node with the max as its value.
+        node = TreeNode(nums[index_max])
         # Set its left and right node to the left and right parts of the list (converted to trees throught recursion).
-        node.left = self.constructMaximumBinaryTree(nums[:index])
-        node.right = self.constructMaximumBinaryTree(nums[index+1:])
+        node.left = self.constructMaximumBinaryTree(nums[:index_max])
+        node.right = self.constructMaximumBinaryTree(nums[index_max+1:])
 
         return node
