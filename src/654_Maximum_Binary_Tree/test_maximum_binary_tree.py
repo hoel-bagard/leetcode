@@ -43,7 +43,6 @@ def tree_to_list(tree_root: TreeNode | None) -> list[int | None]:
 def test_base(nums: list[int], solution_as_list: list[int | None]):
     result = solution.constructMaximumBinaryTree(nums)
     result_as_list = tree_to_list(result)
-    print(result_as_list)
     assert result_as_list == solution_as_list
 
 
