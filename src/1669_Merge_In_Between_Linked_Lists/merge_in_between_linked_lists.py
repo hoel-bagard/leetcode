@@ -15,7 +15,7 @@ from typing_extensions import Self
 
 class ListNode:
     """Definition for singly-linked list."""
-    def __init__(self, val: float = 0, next: Optional[Self] = None):  # noqa: A002
+    def __init__(self, val: float = 0, next: Optional[Self] = None):  # noqa: A002 pylint: disable=redefined-builtin
         self.val = val
         self.next = next
 
