@@ -1,7 +1,7 @@
 # [Maximum XOR After Operations](https://leetcode.com/problems/maximum-xor-after-operations/)
 
 ### Usage
-Run the tests with:
+Run the tests with `cargo test`.
 
 ### Problem description
 You are given a **0-indexed** integer array `nums`. In one operation, select **any** non-negative integer `x` and an index `i`, then **update** `nums[i]` to be equal to `nums[i] AND (nums[i] XOR x)`.\
