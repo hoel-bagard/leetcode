@@ -12,6 +12,15 @@ class Solution:
 
 # class Solution:
 #     def nearestValidPoint(self, x: int, y: int, points: list[list[int]]) -> int:
+#         return min(map(lambda idx_point: (idx_point[0], abs(x - idx_point[1][0]) + abs(y - idx_point[1][1])),
+#                        ((idx, point) for (idx, point) in enumerate(points) if x == point[0] or y == point[1])),
+#                    default=(-1, None),
+#                    key=lambda idx_point: idx_point[1])[0]
+
+
+# Worst solution.
+# class Solution:
+#     def nearestValidPoint(self, x: int, y: int, points: list[list[int]]) -> int:
 #         (dists := list(map(lambda idx_point: (idx_point[0], abs(x - idx_point[1][0]) + abs(y - idx_point[1][1])),
 #                            enumerate(points)))).sort(key=lambda idx_point: idx_point[1])
 #         for idx, _dist in dists:
