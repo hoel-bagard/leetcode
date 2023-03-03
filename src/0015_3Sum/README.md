@@ -2,7 +2,14 @@
 
 ### Usage
 Run the tests with:
-- For all tests: `python -m pytest src/0015_3Sum/ --hypothesis-show-statistics`
+```
+python -m pytest src/0015_3Sum/ --hypothesis-show-statistics
+```
+
+Run the benchmark with:
+```
+python -m pytest src/0015_3Sum/benchmark_three_sum.py -vv
+```
 
 ### Problem description
 Given an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
