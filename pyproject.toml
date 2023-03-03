@@ -1,3 +1,11 @@
+[project]
+name = "leetcode"
+version = "0.1"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-benchmark", "hypothesis"]
+dev = ["pre-commit", "pip-tools", "flake8", "flake8-docstrings", "pep8-naming", "flake8-import-order", "flake8-bugbear", "flake8-quotes", "flake8-comprehensions"]
+
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html
 addopts = [
