@@ -7,7 +7,7 @@ from .longuest_palindrome import Solution, SolutionBruteForce
 solution = Solution()
 
 
-@pytest.mark.parametrize("input_string, expected_answer",
+@pytest.mark.parametrize(("input_string", "expected_answer"),
                          [("babad", "bab"),
                           ("cbbd", "bb"),
                           ("bb", "bb"),

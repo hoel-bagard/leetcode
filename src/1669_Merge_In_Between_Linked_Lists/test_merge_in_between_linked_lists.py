@@ -25,7 +25,7 @@ def linked_list_to_list(linked_list: ListNode) -> list[float]:
     return out_list
 
 
-@pytest.mark.parametrize("list1, a, b, list2, solution_as_list",
+@pytest.mark.parametrize(("list1", "a", "b", "list2", "solution_as_list"),
                          [([0, 1, 2, 3, 4, 5], 3, 4, [1000000, 1000001, 1000002],
                            [0, 1, 2, 1000000, 1000001, 1000002, 5]),
                           ([0, 1, 2, 3, 4, 5, 6], 2, 5, [1000000, 1000001, 1000002, 1000003, 1000004],

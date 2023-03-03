@@ -16,7 +16,7 @@ def to_set(list_output: Iterable[Iterable[int]]) -> set[tuple[int, int, int]]:
     return {tuple(triplet) for triplet in list_output}
 
 
-@pytest.mark.parametrize("nums, expected_answer",
+@pytest.mark.parametrize(("nums", "expected_answer"),
                          [([-1, 0, 1, 2, -1, -4], {(-1, -1, 2), (-1, 0, 1)}),
                           ([-1, 3, 1, 2, -1, -4], {(-1, -1, 2), (-4, 1, 3)}),
                           ([0, 1, 1], set()),

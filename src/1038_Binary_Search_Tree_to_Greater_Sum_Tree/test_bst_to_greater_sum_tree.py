@@ -50,7 +50,7 @@ def list_to_tree(node_list: list[int | None]) -> TreeNode:
     return tree_root
 
 
-@pytest.mark.parametrize("bst_as_list, answer_as_list",
+@pytest.mark.parametrize(("bst_as_list", "answer_as_list"),
                          [([4, 1, 6, 0, 2, 5, 7, None, None, None, 3, None, None, None, 8],
                            [30, 36, 21, 36, 35, 26, 15, None, None, None, 33, None, None, None, 8]),
                           ([0, None, 1], [1, None, 1]),

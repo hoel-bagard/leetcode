@@ -34,7 +34,7 @@ def tree_to_list(tree_root: TreeNode | None) -> list[int | None]:
     return tree_as_list
 
 
-@pytest.mark.parametrize("nums, solution_as_list",
+@pytest.mark.parametrize(("nums", "solution_as_list"),
                          [([3, 2, 1, 6, 0, 5], [6, 3, 5, None, 2, 0, None, None, 1]),
                           ([3, 2, 1, 5, 6, 0], [6, 5, 0, 3, None, None, None, None, 2, None, 1]),
                           ([1, 2, 3, 4], [4, 3, None, 2, None, 1]),
