@@ -5,14 +5,13 @@ k is a positive integer and is less than or equal to the length of the linked li
 a multiple of k then left-out nodes, in the end, should remain as it is.
 You may not alter the values in the list's nodes, only nodes themselves may be changed.
 """
-from typing import Optional
 
 from typing_extensions import Self
 
 
 class ListNode:
     """Definition for singly-linked list."""
-    def __init__(self, val: int = 0, next_node: Optional[Self] = None):
+    def __init__(self, val: int = 0, next_node: Self | None = None):
         self.val = val
         self.next_node = next_node
 

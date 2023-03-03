@@ -8,14 +8,13 @@ Constraints:
 - 1 <= a <= b < list1.length - 1
 - 1 <= list2.length <= 104
 """
-from typing import Optional
 
 from typing_extensions import Self
 
 
 class ListNode:
     """Definition for singly-linked list."""
-    def __init__(self, val: float = 0, next: Optional[Self] = None):  # noqa: A002 pylint: disable=redefined-builtin
+    def __init__(self, val: float = 0, next: Self | None = None):  # noqa: A002 pylint: disable=redefined-builtin
         self.val = val
         self.next = next
 

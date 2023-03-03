@@ -7,14 +7,13 @@ A maximum binary tree can be built recursively from nums using the following alg
 - Recursively build the right subtree on the subarray suffix to the right of the maximum value.
 - Return the maximum binary tree built from nums.
 """
-from typing import Optional
 
 from typing_extensions import Self
 
 
 class TreeNode:
     """Definition for a binary tree node."""
-    def __init__(self, val: int = 0, left: Optional[Self] = None, right: Optional[Self] = None):
+    def __init__(self, val: int = 0, left: Self | None = None, right: Self | None = None):
         self.val = val
         self.left = left
         self.right = right
