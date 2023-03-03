@@ -4,7 +4,7 @@ version = "0.1"
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-benchmark", "hypothesis"]
-dev = ["pre-commit", "pip-tools", "flake8", "flake8-docstrings", "pep8-naming", "flake8-import-order", "flake8-bugbear", "flake8-quotes", "flake8-comprehensions"]
+dev = ["pre-commit", "pip-tools", "ruff", "flake8", "flake8-docstrings", "pep8-naming", "flake8-import-order", "flake8-bugbear", "flake8-quotes", "flake8-comprehensions"]
 
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html
@@ -16,3 +16,14 @@ addopts = [
 line_length = 120
 case_sensitive = false
 order_by_type = false
+
+[tool.ruff]
+select = ["A", "B", "C4", "D", "E", "F", "N", "I", "Q"]
+ignore = ["D1", "D401", "D204", "D203", "D213"]
+line-length = 120
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]

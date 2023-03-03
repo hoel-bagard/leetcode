@@ -62,6 +62,8 @@ pyproject-hooks==1.0.0
     # via build
 pyyaml==6.0
     # via pre-commit
+ruff==0.0.253
+    # via leetcode (pyproject.toml)
 snowballstemmer==2.2.0
     # via pydocstyle
 tomli==2.0.1
