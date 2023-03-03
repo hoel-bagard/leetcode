@@ -1,6 +1,7 @@
 [project]
 name = "leetcode"
 version = "0.1"
+dependencies = ["typing_extensions"]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-benchmark", "hypothesis"]
@@ -18,7 +19,7 @@ case_sensitive = false
 order_by_type = false
 
 [tool.ruff]
-select = ["A", "B", "C4", "D", "E", "F", "N", "I", "Q", "UP"]
+select = ["A", "B", "C4", "D", "E", "F", "N", "I", "Q", "UP", "ANN"]
 ignore = ["D1", "D401", "D204", "D203", "D213"]
 line-length = 120
 

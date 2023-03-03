@@ -46,7 +46,7 @@ repos:
     rev: v1.1.271
     hooks:
     - id: pyright
-      additional_dependencies: ["pytest", "hypothesis"]
+      additional_dependencies: ["pytest", "hypothesis", "pytest_benchmark"]
 
   # - repo: https://github.com/PyCQA/isort
   #   rev: 5.10.1

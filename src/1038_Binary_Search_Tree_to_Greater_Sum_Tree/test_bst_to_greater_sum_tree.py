@@ -55,7 +55,7 @@ def list_to_tree(node_list: list[int | None]) -> TreeNode:
                            [30, 36, 21, 36, 35, 26, 15, None, None, None, 33, None, None, None, 8]),
                           ([0, None, 1], [1, None, 1]),
                           ])
-def test_simple(bst_as_list: list[int | None], answer_as_list: list[int | None]):
+def test_simple(bst_as_list: list[int | None], answer_as_list: list[int | None]) -> None:
     bst = list_to_tree(bst_as_list)
     output = solution.bstToGst(bst)
     output_as_list = tree_to_list(output)

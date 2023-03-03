@@ -40,13 +40,13 @@ def tree_to_list(tree_root: TreeNode | None) -> list[int | None]:
                           ([1, 2, 3, 4], [4, 3, None, 2, None, 1]),
                           ([3, 2, 1], [3, None, 2, None, 1]),
                           ])
-def test_base(nums: list[int], solution_as_list: list[int | None]):
+def test_base(nums: list[int], solution_as_list: list[int | None]) -> None:
     result = solution.constructMaximumBinaryTree(nums)
     result_as_list = tree_to_list(result)
     assert result_as_list == solution_as_list
 
 
-def test_empty():
+def test_empty() -> None:
     result = solution.constructMaximumBinaryTree([])
     result_as_list = tree_to_list(result)
     assert result_as_list == [None]

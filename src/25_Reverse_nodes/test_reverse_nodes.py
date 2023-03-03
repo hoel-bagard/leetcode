@@ -23,7 +23,7 @@ def linked_list_to_list(head: ListNode) -> list[int]:
         head = head.next_node
 
 
-def test_base():
+def test_base() -> None:
     values = [1, 2, 3, 4, 5]
     k = 2
     expected_res = [2, 1, 4, 3, 5]
@@ -31,7 +31,7 @@ def test_base():
     assert expected_res == linked_list_to_list(reverse_k_group(head, k))
 
 
-def test_not_multiple():
+def test_not_multiple() -> None:
     values = [1, 2, 3, 4, 5]
     k = 3
     expected_res = [3, 2, 1, 4, 5]

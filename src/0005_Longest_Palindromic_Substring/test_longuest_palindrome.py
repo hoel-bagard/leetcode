@@ -12,7 +12,7 @@ solution = Solution()
                           ("cbbd", "bb"),
                           ("bb", "bb"),
                           ])
-def test_simple(input_string: str, expected_answer: str):
+def test_simple(input_string: str, expected_answer: str) -> None:
     output = solution.longestPalindrome(input_string)
     assert expected_answer == output
 
@@ -20,7 +20,7 @@ def test_simple(input_string: str, expected_answer: str):
 solution_bf = SolutionBruteForce
 
 
-def test_is_palindrome_base():
+def test_is_palindrome_base() -> None:
     assert solution_bf.is_palindrome("a")
     assert solution_bf.is_palindrome("aa")
     assert solution_bf.is_palindrome("aba")
@@ -31,6 +31,6 @@ def test_is_palindrome_base():
 
 
 @given(text())
-def test_is_palindrome(string: str):
+def test_is_palindrome(string: str) -> None:
     assert solution_bf.is_palindrome("".join([string, string[::-1]]))
     assert solution_bf.is_palindrome("".join([string[:-1], string[::-1]]))

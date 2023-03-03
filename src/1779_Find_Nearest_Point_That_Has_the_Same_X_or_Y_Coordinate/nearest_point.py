@@ -1,8 +1,10 @@
 import math
 
+from typing_extensions import Self
+
 
 class Solution:
-    def nearestValidPoint(self, x: int, y: int, points: list[list[int]]) -> int:  # noqa: N802
+    def nearestValidPoint(self: Self, x: int, y: int, points: list[list[int]]) -> int:  # noqa: N802
         min_dist, min_idx = math.inf, -1
         for i, (point_x, point_y) in enumerate(points):
             if (x == point_x or y == point_y) and (dist := abs(x - point_x) + abs(y - point_y)) < min_dist:

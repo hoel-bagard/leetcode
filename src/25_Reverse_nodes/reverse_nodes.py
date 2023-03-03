@@ -11,11 +11,11 @@ from typing_extensions import Self
 
 class ListNode:
     """Definition for singly-linked list."""
-    def __init__(self, val: int = 0, next_node: Self | None = None):
+    def __init__(self: Self, val: int = 0, next_node: Self | None = None) -> None:
         self.val = val
         self.next_node = next_node
 
-    def __repr__(self) -> str:
+    def __repr__(self: Self) -> str:
         return f"{type(self).__name__}({self.val}, {self.next_node})"
 
 

@@ -12,7 +12,7 @@ solution = Solution()
                              (["a"], "a"),
                              (["japan", "japan", "japan", "japan"], "japan"),
                          ])
-def test_base(strs: list[str], expected: str):
+def test_base(strs: list[str], expected: str) -> None:
     result = solution.longestCommonPrefix(strs)
     assert expected == result
 
@@ -22,6 +22,6 @@ def test_base(strs: list[str], expected: str):
                              ([""], ""),
                              (["", ""], ""),
                          ])
-def test_empty(strs: list[str], expected: str):
+def test_empty(strs: list[str], expected: str) -> None:
     result = solution.longestCommonPrefix(strs)
     assert expected == result

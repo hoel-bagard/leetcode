@@ -1,5 +1,5 @@
 import random
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 
 import pytest
 from hypothesis import given
@@ -23,7 +23,7 @@ def to_set(list_output: Iterable[Iterable[int]]) -> set[tuple[int, int, int]]:
                           ([0, 0, 0], {(0, 0, 0)}),
                           ([0, 0, 0, 0], {(0, 0, 0)}),
                           ])
-def test_base(nums: list[int], expected_answer: set[tuple[int, int, int]]):
+def test_base(nums: list[int], expected_answer: set[tuple[int, int, int]]) -> None:
     output = solution.three_sum(nums)
     assert expected_answer == to_set(output)
 
@@ -31,7 +31,7 @@ def test_base(nums: list[int], expected_answer: set[tuple[int, int, int]]):
 @given(st.lists(st.integers(min_value=1, max_value=max_value),
                 min_size=min_size,
                 max_size=max_size))
-def test_all_positive(nums: list[int]):
+def test_all_positive(nums: list[int]) -> None:
     output = solution.three_sum(nums)
     assert set() == to_set(output)
 
@@ -39,7 +39,7 @@ def test_all_positive(nums: list[int]):
 @given(st.lists(st.integers(min_value=min_value, max_value=-1),
                 min_size=min_size,
                 max_size=max_size))
-def test_all_negative(nums: list[int]):
+def test_all_negative(nums: list[int]) -> None:
     output = solution.three_sum(nums)
     assert set() == to_set(output)
 
@@ -47,7 +47,7 @@ def test_all_negative(nums: list[int]):
 @given(st.lists(st.integers(min_value=min_value, max_value=max_value),
                 min_size=min_size,
                 max_size=max_size))
-def test_no_duplicates(nums: list[int]):
+def test_no_duplicates(nums: list[int]) -> None:
     output = solution.three_sum(nums)
     assert len(output) == len(to_set(output))
 
@@ -56,7 +56,7 @@ def test_no_duplicates(nums: list[int]):
                                   st.integers(min_value=min_value, max_value=0),
                                   st.integers(min_value=0, max_value=max_value)),
                         min_size=0, max_size=10))
-def test_can_find_triplets_non_exclusive(triplets: set[tuple[int, int, int]]):
+def test_can_find_triplets_non_exclusive(triplets: set[tuple[int, int, int]]) -> None:
     nums = []
     for triplet in triplets:
         nums.extend(triplet)
@@ -65,7 +65,7 @@ def test_can_find_triplets_non_exclusive(triplets: set[tuple[int, int, int]]):
 
 
 @st.composite
-def generate_nums(draw):  # pyright: ignore
+def generate_nums(draw: Callable) -> tuple[list[int], set[tuple[int, int, int]]]:  # pyright: ignore
     nb_triplets: int = draw(st.integers(min_value=0, max_value=10))
     expected: set[tuple[int, int, int]] = set()
     nums: list[int] = []
@@ -80,7 +80,7 @@ def generate_nums(draw):  # pyright: ignore
 
 
 @given(nums_expected=generate_nums())
-def test_can_find_triplets_non_exclusive_composite(nums_expected: tuple[list[int], set[tuple[int, int, int]]]):
+def test_can_find_triplets_non_exclusive_composite(nums_expected: tuple[list[int], set[tuple[int, int, int]]]) -> None:
     nums, expected = nums_expected
     output = solution.three_sum(nums)
     assert expected.issubset(to_set(output))

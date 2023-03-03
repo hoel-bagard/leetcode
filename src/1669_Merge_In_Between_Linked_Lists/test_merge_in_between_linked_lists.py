@@ -31,7 +31,7 @@ def linked_list_to_list(linked_list: ListNode) -> list[float]:
                           ([0, 1, 2, 3, 4, 5, 6], 2, 5, [1000000, 1000001, 1000002, 1000003, 1000004],
                            [0, 1, 1000000, 1000001, 1000002, 1000003, 1000004, 6]),
                           ])
-def test_base(list1: list[float], a: int, b: int, list2: list[float], solution_as_list: list[float]):
+def test_base(list1: list[float], a: int, b: int, list2: list[float], solution_as_list: list[float]) -> None:
     linked_list1 = list_to_linked_list(list1)
     linked_list2 = list_to_linked_list(list2)
     result = solution.mergeInBetween(linked_list1, a, b, linked_list2)
@@ -39,7 +39,7 @@ def test_base(list1: list[float], a: int, b: int, list2: list[float], solution_a
     assert result_as_list == solution_as_list
 
 
-def test_a_equal_b():
+def test_a_equal_b() -> None:
     linked_list1 = list_to_linked_list([0, 1, 4, 5])
     linked_list2 = list_to_linked_list([101, 102, 103])
     a, b = 1, 1
@@ -61,7 +61,7 @@ def test_a_equal_b():
 
 
 # b < list1.length - 1 In the problem description.
-def test_b_too_big():
+def test_b_too_big() -> None:
     linked_list1 = list_to_linked_list([0, 1, 2, 3])
     linked_list2 = list_to_linked_list([101, 102, 103])
     a, b = 1, 10

@@ -14,13 +14,15 @@ from typing_extensions import Self
 
 class ListNode:
     """Definition for singly-linked list."""
-    def __init__(self, val: float = 0, next: Self | None = None):  # noqa: A002 pylint: disable=redefined-builtin
+    def __init__(self: Self,
+                 val: float = 0,
+                 next: Self | None = None) -> None:  # noqa: A002 pylint: disable=redefined-builtin
         self.val = val
         self.next = next
 
 
 class Solution:
-    def mergeInBetween(self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:  # noqa: N802
+    def mergeInBetween(self: Self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:  # noqa: N802
         # Go through the first linked list to find where to cut (node a-1) and where to stitch (node b+1).
         current_node, cut_node, idx = list1, None, 0
         while idx < b+1 and current_node is not None:

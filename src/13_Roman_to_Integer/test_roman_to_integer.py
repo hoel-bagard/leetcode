@@ -10,7 +10,7 @@ solution = Solution()
                           ("LVIII", 58),
                           ("XXVII", 27),
                           ])
-def test_simple(roman_numeral: str, integer: int):
+def test_simple(roman_numeral: str, integer: int) -> None:
     assert solution.romanToInt(roman_numeral) == integer
 
 
@@ -18,5 +18,5 @@ def test_simple(roman_numeral: str, integer: int):
                          [("MCMXCIV", 1994),
                           ("IV", 4),
                           ])
-def test_subtraction(roman_numeral: str, integer: int):
+def test_subtraction(roman_numeral: str, integer: int) -> None:
     assert solution.romanToInt(roman_numeral) == integer

@@ -1,8 +1,11 @@
 # import numpy as np
 # import numpy.typing as npt
 
+from typing_extensions import Self
+
+
 class Solution:
-    def longestCommonPrefix(self, strs: list[str]) -> str:  # noqa: N802
+    def longestCommonPrefix(self: Self, strs: list[str]) -> str:  # noqa: N802
         strs.sort(key=len)
 
         for i, letter_shortest_string in enumerate(strs[0]):

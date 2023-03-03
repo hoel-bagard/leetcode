@@ -2,9 +2,11 @@ import bisect
 import collections
 import itertools
 
+from typing_extensions import Self
+
 
 class Solution:
-    def three_sum_slow(self, nums: list[int]) -> list[list[int]]:
+    def three_sum_slow(self: Self, nums: list[int]) -> list[list[int]]:
         nums.sort()
         nb_elts = len(nums)
         result: list[list[int]] = []
@@ -38,7 +40,7 @@ class Solution:
                     end_idx -= 1
         return result
 
-    def three_sum(self, nums: list[int]) -> set[tuple[int, int, int]]:
+    def three_sum(self: Self, nums: list[int]) -> set[tuple[int, int, int]]:
         nums.sort()
         nums_counts = collections.Counter(nums)
         result: set[tuple[int, int, int]] = set()

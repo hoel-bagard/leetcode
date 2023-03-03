@@ -13,14 +13,14 @@ from typing_extensions import Self
 
 class TreeNode:
     """Definition for a binary tree node."""
-    def __init__(self, val: int = 0, left: Self | None = None, right: Self | None = None):
+    def __init__(self: Self, val: int = 0, left: Self | None = None, right: Self | None = None) -> None:
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def constructMaximumBinaryTree(self, nums: list[int]) -> TreeNode | None:  # noqa: N802
+    def constructMaximumBinaryTree(self: Self, nums: list[int]) -> TreeNode | None:  # noqa: N802
         # Edge case where the list is empty.
         if not nums:
             return None
