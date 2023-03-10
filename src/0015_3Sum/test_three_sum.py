@@ -12,8 +12,8 @@ min_value, max_value = -100_000, 100_000
 min_size, max_size = 3, 3000
 
 
-def to_set(list_output: Iterable[Iterable[int]]) -> set[tuple[int, int, int]]:
-    return {tuple(triplet) for triplet in list_output}
+def to_sorted_set(list_output: Iterable[Iterable[int]]) -> set[tuple[int, int, int]]:
+    return {tuple(sorted(triplet)) for triplet in list_output}
 
 
 @pytest.mark.parametrize(("nums", "expected_answer"),
@@ -25,7 +25,7 @@ def to_set(list_output: Iterable[Iterable[int]]) -> set[tuple[int, int, int]]:
                           ])
 def test_base(nums: list[int], expected_answer: set[tuple[int, int, int]]) -> None:
     output = solution.three_sum(nums)
-    assert expected_answer == to_set(output)
+    assert expected_answer == to_sorted_set(output)
 
 
 @given(st.lists(st.integers(min_value=1, max_value=max_value),
@@ -33,7 +33,7 @@ def test_base(nums: list[int], expected_answer: set[tuple[int, int, int]]) -> No
                 max_size=max_size))
 def test_all_positive(nums: list[int]) -> None:
     output = solution.three_sum(nums)
-    assert set() == to_set(output)
+    assert set() == to_sorted_set(output)
 
 
 @given(st.lists(st.integers(min_value=min_value, max_value=-1),
@@ -41,7 +41,7 @@ def test_all_positive(nums: list[int]) -> None:
                 max_size=max_size))
 def test_all_negative(nums: list[int]) -> None:
     output = solution.three_sum(nums)
-    assert set() == to_set(output)
+    assert set() == to_sorted_set(output)
 
 
 @given(st.lists(st.integers(min_value=min_value, max_value=max_value),
@@ -49,7 +49,7 @@ def test_all_negative(nums: list[int]) -> None:
                 max_size=max_size))
 def test_no_duplicates(nums: list[int]) -> None:
     output = solution.three_sum(nums)
-    assert len(output) == len(to_set(output))
+    assert len(output) == len(to_sorted_set(output))
 
 
 @given(triplets=st.sets(st.builds(lambda neg, pos: tuple(sorted([neg, -neg-pos, pos])),
@@ -61,7 +61,7 @@ def test_can_find_triplets_non_exclusive(triplets: set[tuple[int, int, int]]) ->
     for triplet in triplets:
         nums.extend(triplet)
     output = solution.three_sum(nums)
-    assert triplets.issubset(to_set(output))
+    assert triplets.issubset(to_sorted_set(output))
 
 
 @st.composite
@@ -83,7 +83,7 @@ def generate_nums(draw: Callable) -> tuple[list[int], set[tuple[int, int, int]]]
 def test_can_find_triplets_non_exclusive_composite(nums_expected: tuple[list[int], set[tuple[int, int, int]]]) -> None:
     nums, expected = nums_expected
     output = solution.three_sum(nums)
-    assert expected.issubset(to_set(output))
+    assert expected.issubset(to_sorted_set(output))
 
 
 # TODO: test against reference implementation.

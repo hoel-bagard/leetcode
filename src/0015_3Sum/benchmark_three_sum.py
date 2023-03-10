@@ -24,10 +24,19 @@ def test_slow_already_sorted(benchmark: BenchmarkFixture) -> None:
     benchmark.pedantic(solution.three_sum_slow, args=(nums, ), rounds=500, iterations=10)
 
 
-def test_fast(benchmark: BenchmarkFixture) -> None:
+def test_middle(benchmark: BenchmarkFixture) -> None:
     benchmark.pedantic(solution.three_sum, setup=get_nums, rounds=500, iterations=1)
+
+
+def test_middle_already_sorted(benchmark: BenchmarkFixture) -> None:
+    nums = list(range(10_000))
+    benchmark.pedantic(solution.three_sum, args=(nums, ), rounds=500, iterations=10)
+
+
+def test_fast(benchmark: BenchmarkFixture) -> None:
+    benchmark.pedantic(solution.three_sum_fast, setup=get_nums, rounds=500, iterations=1)
 
 
 def test_fast_already_sorted(benchmark: BenchmarkFixture) -> None:
     nums = list(range(10_000))
-    benchmark.pedantic(solution.three_sum, args=(nums, ), rounds=500, iterations=10)
+    benchmark.pedantic(solution.three_sum_fast, args=(nums, ), rounds=500, iterations=10)
