@@ -4,14 +4,14 @@ on:
   push:
     branches: [ master ]
     paths:
-      - **.py
+      - "**.py"
       - .github/workflows/typing_check.yaml
       - pyrightconfig.json
       - requirements.txt
       - requirements-test.txt
   pull_request:
     paths:
-      - **.py
+      - "**.py"
       - .github/workflows/typing_check.yaml
       - pyrightconfig.json
       - requirements.txt
