@@ -8,8 +8,9 @@ python -m pytest src/0015_3Sum/ --hypothesis-show-statistics
 
 Run the benchmark with:
 ```
-python -m pytest src/0015_3Sum/benchmark_three_sum.py -vv
+python -m pytest src/0015_3Sum/benchmark_three_sum.py -m sorted -vv
 ```
+(The `-m sorted` option runs the benchmarks on pre-sorted arrays, remove it to also see the results on non-sorted arrays.)
 
 ### Problem description
 Given an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.
