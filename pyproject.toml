@@ -5,7 +5,7 @@ dependencies = ["typing_extensions"]
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-benchmark", "hypothesis"]
-dev = ["pre-commit", "pip-tools", "ruff", "flake8", "flake8-docstrings", "pep8-naming", "flake8-import-order", "flake8-bugbear", "flake8-quotes", "flake8-comprehensions"]
+dev = ["pre-commit", "pip-tools", "ruff"]
 
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html
