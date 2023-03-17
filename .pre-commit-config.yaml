@@ -30,9 +30,3 @@ repos:
     hooks:
     - id: pyright
       additional_dependencies: ["pytest", "hypothesis", "pytest_benchmark"]
-
-  # - repo: https://github.com/compilerla/conventional-pre-commit
-  #   rev: v2.0.0
-  #   hooks:
-  #     - id: conventional-pre-commit
-  #       stages: [commit-msg]
