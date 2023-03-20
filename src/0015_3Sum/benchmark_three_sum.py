@@ -2,7 +2,7 @@ import random
 from typing import Any
 
 import pytest
-from pytest_benchmark.fixture import BenchmarkFixture
+from pytest_benchmark.fixture import BenchmarkFixture  # pyright: ignore[reportUnknownVariableType]
 
 from .three_sum import Solution
 
