@@ -1,2 +1,3 @@
 BasedOnStyle: Google
 AlignAfterOpenBracket: Align
+ColumnLimit: 120
