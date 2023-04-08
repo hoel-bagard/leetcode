@@ -3,7 +3,7 @@
 ### Dependencies
 
 Package :
-* **g++** (part of `gcc`) : any version supporting c++17 standard (tested with gcc-9.3 and gcc-11.1)
+* **g++** (part of `gcc`) : any version supporting c++17 standard (tested with gcc-12.2.1)
 * **gtest** : for testing (`make test`), the package is named `gtest` on Arch Linux and `libgtest-dev` on Debian/Ubuntu.
 
 
@@ -12,8 +12,7 @@ Package :
 - `make test` will build and run the tests.
 
 ### Problem description
-Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return **the median** of the two sorted arrays.
-
+Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return **the median** of the two sorted arrays.\
 The overall run time complexity should be `O(log (m+n))`.
 
 #### Example 1:
@@ -36,4 +35,4 @@ Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 - `0 <= m <= 1000`
 - `0 <= n <= 1000`
 - `1 <= m + n <= 2000`
-- `-106 <= nums1[i], nums2[i] <= 106`
+- `-10⁶ <= nums1[i], nums2[i] <= 10⁶`
