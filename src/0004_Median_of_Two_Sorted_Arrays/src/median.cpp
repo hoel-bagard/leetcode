@@ -1,27 +1,24 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-#include <algorithm>
-#include <vector>
-
 #include "median.hpp"
 
-double Solution::findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2) {
+#include <algorithm>
+#include <climits>
+#include <vector>
+
+double Solution::findMedianSortedArrays(const std::vector<int>& nums1, const std::vector<int>& nums2) {
   // Swap to make nums1 the smaller of the two arrays.
   if (nums1.size() > nums2.size()) return Solution::findMedianSortedArrays(nums2, nums1);
 
-  long unsigned int length_smaller = nums1.size();
-  long unsigned int length_longer = nums2.size();
+  const size_t length_smaller = nums1.size();
+  const size_t length_longer = nums2.size();
+  const size_t mid_in_merged_array = (length_smaller + length_longer + 1) / 2;
 
-  long unsigned int start = 0;
-  long unsigned int end = length_smaller;
-  long unsigned int mid_in_merged_array = (length_smaller + length_longer + 1) / 2;
-
+  size_t start = 0;
+  size_t end = length_smaller;
   while (start <= end) {
     // Compute the number of elements contributed to the left partition from each input array.
-    long unsigned int mid = (start + end) / 2;
-    long unsigned int left_nums1_size = mid;
-    long unsigned int left_nums2_size = mid_in_merged_array - mid;
+    size_t mid = (start + end) / 2;
+    size_t left_nums1_size = mid;
+    size_t left_nums2_size = mid_in_merged_array - mid;
 
     // Check for indices overflow.
     int left_nums1 = (left_nums1_size > 0) ? nums1[left_nums1_size - 1] : INT_MIN;
@@ -32,8 +29,8 @@ double Solution::findMedianSortedArrays(std::vector<int>& nums1, std::vector<int
     // If the partition is correct, then return, otherwise continue the binary search by updating start or end.
     if (left_nums1 <= right_nums2 and left_nums2 <= right_nums1) {
       if ((length_smaller + length_longer) % 2 == 0)
-        return (max(left_nums1, left_nums2) + min(right_nums1, right_nums2)) / 2.0;
-      return max(left_nums1, left_nums2);
+        return (std::max(left_nums1, left_nums2) + std::min(right_nums1, right_nums2)) / 2.0;
+      return std::max(left_nums1, left_nums2);
     } else if (left_nums1 <= right_nums2) {
       start = mid + 1;
     } else

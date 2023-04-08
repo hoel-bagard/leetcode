@@ -4,6 +4,5 @@
 
 class Solution {
  public:
-  double findMedianSortedArrays(std::vector<int>& nums1,
-                                std::vector<int>& nums2);
+  double findMedianSortedArrays(const std::vector<int>& nums1, const std::vector<int>& nums2);
 };
