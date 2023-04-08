@@ -9,9 +9,24 @@
 
 TEST(MedianTest, Example1) {
   {
-    std::vector<int> nums1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::vector<int> nums2 = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
+    std::vector<int> nums1 = {1, 3};
+    std::vector<int> nums2 = {2};
 
-    EXPECT_EQ(0, 0);
+    Solution solution_object;
+    auto median = solution_object.findMedianSortedArrays(nums1, nums2);
+
+    EXPECT_EQ(median, 2);
+  }
+}
+
+TEST(MedianTest, Example2) {
+  {
+    std::vector<int> nums1 = {1, 2};
+    std::vector<int> nums2 = {3, 4};
+
+    Solution solution_object;
+    auto median = solution_object.findMedianSortedArrays(nums1, nums2);
+
+    EXPECT_EQ(median, 2.5);
   }
 }
