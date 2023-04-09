@@ -1,4 +1,4 @@
 BasedOnStyle: Google
-ColumnLimit: 180
+ColumnLimit: 120
 AlignAfterOpenBracket: Align
 AlwaysBreakAfterReturnType: None
