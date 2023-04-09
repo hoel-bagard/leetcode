@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 
-*.kate-swp
-
 target/
 .hypothesis
+
+# C++
+**/bin
+**/obj
+**/.ccls-cache
