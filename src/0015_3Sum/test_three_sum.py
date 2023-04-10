@@ -1,8 +1,11 @@
+import bisect
+import collections
+import itertools
 import random
 from collections.abc import Callable, Iterable
 
 import pytest
-from hypothesis import given
+from hypothesis import given, settings
 from hypothesis import strategies as st
 
 from .three_sum import Solution
@@ -44,6 +47,7 @@ def test_all_negative(nums: list[int]) -> None:
     assert set() == to_sorted_set(output)
 
 
+@settings(max_examples=150)
 @given(st.lists(st.integers(min_value=min_value, max_value=max_value),
                 min_size=min_size,
                 max_size=max_size))
@@ -86,4 +90,26 @@ def test_can_find_triplets_non_exclusive_composite(nums_expected: tuple[list[int
     assert expected.issubset(to_sorted_set(output))
 
 
-# TODO: test against reference implementation.
+def reference_implementation(nums: list[int]) -> set[tuple[int, int, int]]:
+    nums.sort()
+    nums_counts = collections.Counter(nums)
+    result: set[tuple[int, int, int]] = set()
+
+    zero_idx = bisect.bisect_left(nums, 0)
+    for pos, neg in itertools.product(nums[:zero_idx], nums[zero_idx:]):
+        if ((target := -(pos + neg)) in nums_counts
+                and (target != pos or nums_counts[pos] > 1)
+                and (target != neg or nums_counts[neg] > 1)):
+            result.add(tuple(sorted([pos, neg, target])))
+    if nums_counts[0] >= 3:
+        result.add((0, 0, 0))
+
+    return result
+
+
+@settings(max_examples=150)
+@given(nums=st.lists(st.integers(), min_size=0, max_size=100))
+def test_against_reference_implementation(nums: list[int]) -> None:
+    expected = reference_implementation(nums)
+    output = solution.three_sum(nums)
+    assert to_sorted_set(output) == expected
