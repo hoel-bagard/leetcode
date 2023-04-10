@@ -70,15 +70,15 @@ def test_can_find_triplets_non_exclusive(triplets: set[tuple[int, int, int]]) ->
 
 @st.composite
 def generate_nums(draw: Callable) -> tuple[list[int], set[tuple[int, int, int]]]:  # pyright: ignore
-    nb_triplets: int = draw(st.integers(min_value=0, max_value=10))
+    nb_triplets: int = draw(st.integers(min_value=0, max_value=10))  # pyright: ignore
     expected: set[tuple[int, int, int]] = set()
     nums: list[int] = []
-    for _ in range(nb_triplets):
-        neg: int = draw(st.integers(min_value=min_value, max_value=0))
-        pos: int = draw(st.integers(min_value=0, max_value=max_value))
-        target = -(neg + pos)
-        expected.add(tuple(sorted([neg, target, pos])))
-        nums.extend([neg, pos, target])
+    for _ in range(nb_triplets):  # pyright: ignore
+        neg: int = draw(st.integers(min_value=min_value, max_value=0))  # pyright: ignore
+        pos: int = draw(st.integers(min_value=0, max_value=max_value))  # pyright: ignore
+        target = -(neg + pos)  # pyright: ignore
+        expected.add(tuple(sorted([neg, target, pos])))  # pyright: ignore
+        nums.extend([neg, pos, target])  # pyright: ignore
     random.shuffle(nums)
     return nums, expected
 
