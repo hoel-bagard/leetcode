@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <functional>
+#include <memory>
 #include <tuple>
 #include <vector>
 
@@ -23,8 +24,8 @@ TEST_P(SolutionExtraTests, CheckNotInTree) {
   std::vector<std::optional<int>> root = std::get<1>(GetParam());
   bool expected = std::get<2>(GetParam());
 
-  ListNode* linked_list_head = vector_to_linked_list(head);
-  TreeNode* tree_root = vector_to_b_tree(root);
+  std::shared_ptr<ListNode> linked_list_head{vector_to_linked_list(head)};
+  std::shared_ptr<TreeNode> tree_root{vector_to_b_tree(root)};
 
   ASSERT_EQ(expected, solution.isSubPath(linked_list_head, tree_root));
 }

@@ -2,6 +2,7 @@
 #include <unistd.h>
 
 #include <chrono>
+#include <memory>
 #include <tuple>
 #include <vector>
 
@@ -16,10 +17,26 @@ class SolutionExampleTests : public ::testing::Test {
 TEST_F(SolutionExampleTests, Example1) {
   {
     std::vector<int> head = {1, 4, 2, 6};
-    std::vector<std::optional<int>> root = {1, 4, 4, std::nullopt, 2, 2, std::nullopt, 1, std::nullopt, 6, 8, std::nullopt, std::nullopt, std::nullopt, std::nullopt, 1, 3};
+    std::vector<std::optional<int>> root = {1,
+                                            4,
+                                            4,
+                                            std::nullopt,
+                                            2,
+                                            2,
+                                            std::nullopt,
+                                            1,
+                                            std::nullopt,
+                                            6,
+                                            8,
+                                            std::nullopt,
+                                            std::nullopt,
+                                            std::nullopt,
+                                            std::nullopt,
+                                            1,
+                                            3};
 
-    ListNode* linked_list_head = vector_to_linked_list(head);
-    TreeNode* tree_root = vector_to_b_tree(root);
+    std::shared_ptr<ListNode> linked_list_head{vector_to_linked_list(head)};
+    std::shared_ptr<TreeNode> tree_root{vector_to_b_tree(root)};
 
     EXPECT_TRUE(solution.isSubPath(linked_list_head, tree_root));
   }
@@ -28,10 +45,26 @@ TEST_F(SolutionExampleTests, Example1) {
 TEST_F(SolutionExampleTests, Example2) {
   {
     std::vector<int> head = {1, 4, 2, 6};
-    std::vector<std::optional<int>> root = {1, 4, 4, std::nullopt, 2, 2, std::nullopt, 1, std::nullopt, 6, 8, std::nullopt, std::nullopt, std::nullopt, std::nullopt, 1, 3};
+    std::vector<std::optional<int>> root = {1,
+                                            4,
+                                            4,
+                                            std::nullopt,
+                                            2,
+                                            2,
+                                            std::nullopt,
+                                            1,
+                                            std::nullopt,
+                                            6,
+                                            8,
+                                            std::nullopt,
+                                            std::nullopt,
+                                            std::nullopt,
+                                            std::nullopt,
+                                            1,
+                                            3};
 
-    ListNode* linked_list_head = vector_to_linked_list(head);
-    TreeNode* tree_root = vector_to_b_tree(root);
+    std::shared_ptr<ListNode> linked_list_head{vector_to_linked_list(head)};
+    std::shared_ptr<TreeNode> tree_root{vector_to_b_tree(root)};
 
     EXPECT_TRUE(solution.isSubPath(linked_list_head, tree_root));
   }
