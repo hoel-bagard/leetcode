@@ -68,11 +68,8 @@ class Solution:
             if count >= 2 and (target := -2 * num) in nums_counts and num != 0:
                 triplets.append((target, num, num))
 
-        # TODO: remove the num != 0, and remove (0, 0, 0) here if added by mistake (num_counts[0] == 2)
-
         sorted_nums = sorted(nums_counts.keys())
         for i, neg in enumerate(sorted_nums[:bisect.bisect_left(sorted_nums, 0)]):
-            # TODO: Comment this part.
             left = bisect.bisect_left(sorted_nums, -(neg + sorted_nums[-1]), i + 1)
             right = bisect.bisect_left(sorted_nums, -(neg / 2), left)
             for b in sorted_nums[left:right]:
