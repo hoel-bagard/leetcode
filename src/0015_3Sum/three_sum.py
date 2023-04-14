@@ -45,6 +45,7 @@ class Solution:
         nums_counts = collections.Counter(nums)
         result: set[tuple[int, int, int]] = set()
 
+        # TODO: nums[:zero_idx]  > nums_counts.keys()
         zero_idx = bisect.bisect_left(nums, 0)
         for pos, neg in itertools.product(nums[:zero_idx], nums[zero_idx:]):
             if ((target := -(pos + neg)) in nums_counts
@@ -57,7 +58,7 @@ class Solution:
         return result
 
     def three_sum_fast(self: Self, nums: list[int]) -> list[tuple[int, int, int]]:
-        """Fastest version according to leetcode.com."""
+        """Fastest version according to leetcode.com (cleaned)."""
         nums_counts = collections.Counter(nums)
         triplets: list[tuple[int, int, int]] = []
 
